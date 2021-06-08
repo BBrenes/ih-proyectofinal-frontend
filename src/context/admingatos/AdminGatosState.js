@@ -6,7 +6,8 @@ const AdminGatosState = props => {
     // A. ESTADO INICIAL
     const initialState = {
         gatos: [],
-        gato: null
+        gato: null,
+        eliminado: false
     }
     // B. CONFIGURACIÓN DEL REDUCER
     const [state, dispatch] = useReducer(AdminGatosReducer, initialState)
@@ -38,6 +39,19 @@ const AdminGatosState = props => {
             return
         }
     }
+
+    const eliminarGato = async (id) => {
+        try {
+            const resultado = await clienteAxios.delete(`/api/admingatos/${id}`)
+            console.log("Gato eliminado")
+            // dispatch({
+            //     type: "ELIMINAR_GATO"
+            // })
+        } catch(e){
+            console.log(e)
+            return
+        }
+    }
     // D. RETORNO
     return (
         <AdminGatosContext.Provider
@@ -45,7 +59,8 @@ const AdminGatosState = props => {
                 gatos: state.gatos,
                 obtenerGatos,
                 gato: state.gato,
-                obtenerGato
+                obtenerGato,
+                eliminarGato
             }}
         >
             {props.children}
