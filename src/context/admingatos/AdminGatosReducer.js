@@ -15,6 +15,12 @@ export default (state, action) => {
                         ...state,
                         gato: action.payload
                     }
+
+                    case "CREAR_GATO":
+                    return {
+                        ...state,
+                        gato: action.payload
+                    }
         default:
             return state
     }

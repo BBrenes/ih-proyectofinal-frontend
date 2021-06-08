@@ -63,6 +63,20 @@ const AdminGatosState = props => {
             return
         }
     }
+
+    const crearGato = async (datosFormulario) => {
+        try {
+            const resultado = await clienteAxios.post(`/api/admingatos`, datosFormulario)
+            console.log("El resultado de crear es:", resultado)
+            dispatch({
+                type: "CREAR_GATO",
+                payload: resultado.data.gatoCreado
+            })
+        } catch(e){
+            console.log(e)
+            return
+        }
+    }
     // D. RETORNO
     return (
         <AdminGatosContext.Provider
@@ -72,7 +86,8 @@ const AdminGatosState = props => {
                 gato: state.gato,
                 obtenerGato,
                 eliminarGato,
-                actualizarGato
+                actualizarGato,
+                crearGato
             }}
         >
             {props.children}

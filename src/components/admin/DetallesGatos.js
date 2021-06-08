@@ -8,10 +8,11 @@ export default function DetallesGatos(props) {
     console.log(id);
 
     const [editando, setEditando] = useState(false);
+    const [creando, setCreando] = useState(false);
 
     // EXTRAER LOS VALORES DEL CONTEXT (ESTADO GLOBAL)
     const adminGatosContext = useContext(AdminGatosContext)
-    const { gato, obtenerGato, eliminarGato, actualizarGato, obtenerGatos} = adminGatosContext
+    const { gato, obtenerGato, eliminarGato, actualizarGato, crearGato, obtenerGatos} = adminGatosContext
 
     const [datosFormulario, setDatosFormulario] = useState({
         nombre: "",
@@ -25,15 +26,31 @@ export default function DetallesGatos(props) {
     const {nombre, edad, genero, esterilizado, descripcion, imagenUrl} = datosFormulario
 
     useEffect(() => {
-
+        
         const generarEventos = async () => {
             await obtenerGato(id)            
             return 
         }
-
+        if(id === 'creargato'){
+            setDatosFormulario({
+                nombre: "",
+                edad: "",
+                genero: "",
+                esterilizado: false,
+                descripcion: "",
+                imagenUrl: ""
+            })
+            setCreando(true)
+        } else{
+        setCreando(false)
+        setEditando(false)
         generarEventos()
-        
+        }
     }, [id])
+
+    useEffect(() => {
+        props.history.push(`/admingatos/${gato._id}`)
+    }, [gato])
 
     const clickEliminar = async (e) => {
         e.preventDefault()
@@ -75,13 +92,91 @@ export default function DetallesGatos(props) {
         setEditando(false)
     }
 
+    const enviarDatosCrear = async (event) => {
+        event.preventDefault()
+        await crearGato(datosFormulario)
+        
+        // console.log("dato", dato)
+         
+         await setCreando(false)
+         
+         await obtenerGatos()
+        //  await props.history.push(`/admingatos/${dato._id}`)
+        
+     }
+
     return (
         <div>
             <h1>Detalles del gatito</h1>
 
-            {editando === false ? (
+            {
+                creando ? (
+                    <>
+                    <h1>Crea un nuevo gatito</h1>
+                    <form onSubmit={(e) => {enviarDatosCrear(e)}}>
+                <div className="campo-form">
+                    <label>Nombre</label>
+                    <input 
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        onChange={(e) => monitoreoCambios(e)}
+                        value={nombre}
+                    />
+                </div>
+                <div className="campo-form">
+                    <label>Edad</label>
+                    <input 
+                        type="text"
+                        id="edad"
+                        name="edad"
+                        onChange={(e) => monitoreoCambios(e)}
+                        value={edad}
+                    />
+                </div>
+                <div className="campo-form">
+                    <label>Genero</label>
+                    <input 
+                        type="text"
+                        id="genero"
+                        name="genero"
+                        onChange={(e) => monitoreoCambios(e)}
+                        value={genero}
+                    />
+                </div>
+                <div className="campo-form">
+                    <label>Descripcion</label>
+                    <input 
+                        type="text"
+                        id="descripcion"
+                        name="descripcion"
+                        onChange={(e) => monitoreoCambios(e)}
+                        value={descripcion}
+                    />
+                </div>
+                <div className="campo-form">
+                    <label>Imgen URL</label>
+                    <input 
+                        type="text"
+                        id="imagenUrl"
+                        name="imagenUrl"
+                        onChange={(e) => monitoreoCambios(e)}
+                        value={imagenUrl}
+                    />
+                </div>
+                <div className="campo-form">
+                    <input
+                        type="submit"
+                        className="btn btn-primario btn-block"
+                        value="Crear"
+                    />
+                </div>
+            </form>
+            </>
+                ) : (
+                editando === false ? (
                 gato === null ? (
-                 <h1>selecciona un gato</h1>
+                 <h1>selecciona un gato o crea uno nuevo.</h1>
             ) : (
                 <>
                 <p>{gato.nombre}</p>
@@ -134,6 +229,7 @@ export default function DetallesGatos(props) {
                 </button>
                 </>
             )
+                )   
             }
             
         </div>

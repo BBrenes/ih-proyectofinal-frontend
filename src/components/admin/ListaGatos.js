@@ -36,6 +36,9 @@ export default function ListaGatos() {
     return (
         <div>
             <h1>Gatitos para adopción</h1>
+            <Link to={`/admingatos/creargato`}>
+                <p >Nuevo Gato</p>
+            </Link>
             {
                 gatos.length === 0 ? "No hay gatitos aún."
                 :
