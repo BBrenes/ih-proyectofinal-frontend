@@ -5,7 +5,8 @@ import clienteAxios from '../../config/axios'
 const AdminGatosState = props => {
     // A. ESTADO INICIAL
     const initialState = {
-        gatos: []
+        gatos: [],
+        gato: null
     }
     // B. CONFIGURACIÓN DEL REDUCER
     const [state, dispatch] = useReducer(AdminGatosReducer, initialState)
@@ -23,12 +24,28 @@ const AdminGatosState = props => {
             return
         }
     }
+
+    const obtenerGato = async (id) => {
+        try {
+            const resultado = await clienteAxios.get(`/api/admingatos/${id}`)
+            console.log("El resultado es:", resultado)
+            dispatch({
+                type: "OBTENER_GATO",
+                payload: resultado.data.gato
+            })
+        } catch(e){
+            console.log(e)
+            return
+        }
+    }
     // D. RETORNO
     return (
         <AdminGatosContext.Provider
             value={{
                 gatos: state.gatos,
-                obtenerGatos
+                obtenerGatos,
+                gato: state.gato,
+                obtenerGato
             }}
         >
             {props.children}

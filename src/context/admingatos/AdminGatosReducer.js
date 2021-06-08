@@ -5,6 +5,11 @@ export default (state, action) => {
                 ...state,
                 gatos: [...action.payload]
             }
+            case "OBTENER_GATO":
+                return {
+                    ...state,
+                    gato: action.payload
+                }
         default:
             return state
     }

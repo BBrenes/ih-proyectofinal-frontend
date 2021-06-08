@@ -1,54 +1,27 @@
-import React, { useContext, useEffect } from 'react'
+import ListaGatos  from './ListaGatos'
+import DetallesGatos  from './DetallesGatos'
 
-import AdminGatosContext from './../../context/admingatos/AdminGatosContext'
-import AuthContext from './../../context/autenticacion/AuthContext'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
 
-export default function AdminGatos() {
+function AdminGatos() {
+  return (
+    <>
+       <Router>
+        Hola Mundo
+        <ListaGatos />
+        <Switch>
+          <Route path="/admingatos/:id" component={DetallesGatos} exact />
+        </Switch>
 
-    // EXTRAER LOS VALORES DEL CONTEXT (ESTADO GLOBAL)
-    const adminGatosContext = useContext(AdminGatosContext)
-    const { gatos, obtenerGatos } = adminGatosContext
+       </Router>     
+                
 
-    const authContext = useContext(AuthContext)
-    const { verificarUsuario, cerrarSesion } = authContext
-
-    useEffect(() => {
-
-        const generarEventos = async () => {
-            await obtenerGatos()            
-            return 
-        }
-
-        generarEventos()
-        
-    }, [])
-
-
-    const clickLogout = (e) => {
-        e.preventDefault()
-        cerrarSesion()
-
-    }
-
-
-
-    return (
-        <div>
-            <h1>Gatitos para adopción</h1>
-            {
-                gatos.length === 0 ? "No hay gatitos aún."
-                :
-                gatos.map(e => {
-                    return (
-                        <p key={e._id}>{e.nombre}</p>
-                    )
-                })
-            }
-
-            <button onClick={(e) => {clickLogout(e)}}>
-                Cerrar sesión
-            </button>
-
-        </div>
-    )
+    </>
+  );
 }
+
+export default AdminGatos;
