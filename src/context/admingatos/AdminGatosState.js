@@ -7,7 +7,7 @@ const AdminGatosState = props => {
     const initialState = {
         gatos: [],
         gato: null,
-        eliminado: false
+        editando: false
     }
     // B. CONFIGURACIÓN DEL REDUCER
     const [state, dispatch] = useReducer(AdminGatosReducer, initialState)
@@ -44,9 +44,20 @@ const AdminGatosState = props => {
         try {
             const resultado = await clienteAxios.delete(`/api/admingatos/${id}`)
             console.log("Gato eliminado")
-            // dispatch({
-            //     type: "ELIMINAR_GATO"
-            // })
+        } catch(e){
+            console.log(e)
+            return
+        }
+    }
+
+    const actualizarGato = async (id, datosFormulario) => {
+        try {
+            const resultado = await clienteAxios.put(`/api/admingatos/${id}`, datosFormulario)
+            console.log("El resultado es:", resultado)
+            dispatch({
+                type: "ACTUALIZAR_GATO",
+                payload: resultado.data.gatoActualizado
+            })
         } catch(e){
             console.log(e)
             return
@@ -60,7 +71,8 @@ const AdminGatosState = props => {
                 obtenerGatos,
                 gato: state.gato,
                 obtenerGato,
-                eliminarGato
+                eliminarGato,
+                actualizarGato
             }}
         >
             {props.children}

@@ -10,6 +10,11 @@ export default (state, action) => {
                     ...state,
                     gato: action.payload
                 }
+                case "ACTUALIZAR_GATO":
+                    return {
+                        ...state,
+                        gato: action.payload
+                    }
         default:
             return state
     }
