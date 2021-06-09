@@ -1,58 +1,34 @@
 import React from 'react'
 
-/* This example requires Tailwind CSS v2.0+ */
-const navigation = [
-    { name: 'Inicio', href: '#' },
-    { name: 'Gatitos en adopción', href: '#' },
-    { name: 'Noticias', href: '#' },
-    { name: 'Donaciones', href: '#' },
-  ]
-  
-  export default function Header() {
-    return (
-      <header className="bg-indigo-600">
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
-          <div className="w-full py-6 flex items-center justify-between border-b border-indigo-500 lg:border-none">
-            <div className="flex items-center">
-              <a href="/">
-                <span className="sr-only">Workflow</span>
-                <img
-                  className="h-10 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-mark.svg?color=white"
-                  alt=""
-                />
-              </a>
-              <div className="hidden ml-10 space-x-8 lg:block">
-                {navigation.map((link) => (
-                  <a key={link.name} href={link.href} className="text-base font-medium text-white hover:text-indigo-50">
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div className="ml-10 space-x-4">
-              <a
-                href="/"
-                className="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
-              >
-                Iniciar Sesión
-              </a>
-              <a
-                href="/nueva-cuenta"
-                className="inline-block bg-white py-2 px-4 border border-transparent rounded-md text-base font-medium text-indigo-600 hover:bg-indigo-50"
-              >
-                Crear Cuenta
-              </a>
-            </div>
-          </div>
-          <div className="py-4 flex flex-wrap justify-center space-x-6 lg:hidden">
-            {navigation.map((link) => (
-              <a key={link.name} href={link.href} className="text-base font-medium text-white hover:text-indigo-50">
-                {link.name}
-              </a>
-            ))}
-          </div>
-        </nav>
-      </header>
-    )
-  }
+export default function Header() {
+  return (
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark" style={{ backgroundColor: "#1098ad" }}>
+  <a class="navbar-brand" href="#">&nbsp;&nbsp;El Gato Vago</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-white" href="#">Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Gatitos en adopción</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Donaciones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Iniciar Sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="#">Registrarme</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      
+    </span>
+  </div>
+</nav>
+  )
+}
