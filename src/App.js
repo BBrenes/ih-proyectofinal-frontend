@@ -2,6 +2,9 @@ import Login  from './components/auth/Login'
 import NuevaCuenta from './components/auth/NuevaCuenta'
 import Proyectos from './components/proyectos/ListadoProyectos'
 import AdminGatos from './components/admin/AdminGatos'
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
+import Test from './components/layout/Test'
 
 import {
   BrowserRouter as Router,
@@ -23,6 +26,7 @@ function App() {
     <AdminGatosState>
     <ProyectoState>
       <AuthState>
+      <Header />
             <Router>
               <Switch>
                 <Route 
@@ -45,8 +49,14 @@ function App() {
                   component={AdminGatos}
                   exact              
                 />
+                <Route 
+                  path="/test"
+                  component={Test}
+                  exact
+                />
               </Switch>
-            </Router>  
+            </Router>
+      <Footer />
       </AuthState>
     </ProyectoState>
     </AdminGatosState>
