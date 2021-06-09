@@ -48,9 +48,9 @@ export default function DetallesGatos(props) {
         }
     }, [id])
 
-    useEffect(() => {
-        props.history.push(`/admingatos/${gato._id}`)
-    }, [gato])
+    // useEffect(() => {
+    //     props.history.push(`/admingatos/${gato._id}`)
+    // }, [gato])
 
     const clickEliminar = async (e) => {
         e.preventDefault()
@@ -94,14 +94,14 @@ export default function DetallesGatos(props) {
 
     const enviarDatosCrear = async (event) => {
         event.preventDefault()
-        await crearGato(datosFormulario)
-        
-        // console.log("dato", dato)
+        const dato = await crearGato(datosFormulario)
+        const gatoId = dato.data.gatoCreado._id
+        console.log("dato", dato)
          
          await setCreando(false)
          
-         await obtenerGatos()
-        //  await props.history.push(`/admingatos/${dato._id}`)
+        // await obtenerGatos()
+        props.history.push(`/admingatos/${gatoId}`)
         
      }
 

@@ -19,6 +19,7 @@ export default (state, action) => {
                     case "CREAR_GATO":
                     return {
                         ...state,
+                        gatos: [...state.gatos, action.payload],
                         gato: action.payload
                     }
         default:

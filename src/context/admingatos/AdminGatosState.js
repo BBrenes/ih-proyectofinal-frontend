@@ -72,6 +72,7 @@ const AdminGatosState = props => {
                 type: "CREAR_GATO",
                 payload: resultado.data.gatoCreado
             })
+            return resultado
         } catch(e){
             console.log(e)
             return
