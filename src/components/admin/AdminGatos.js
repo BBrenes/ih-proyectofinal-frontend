@@ -11,15 +11,19 @@ function AdminGatos() {
   return (
     <>
        <Router>
-        Hola Mundo
-        <ListaGatos />
-        <Switch>
-          <Route path="/admingatos/:id" component={DetallesGatos} exact />
-        </Switch>
-
+        <div className="container">
+          <div className="mt-4 row">
+            <div className="col-md-4">
+              <ListaGatos />
+            </div>
+            <Switch>
+              <div className="col-md-8">
+                <Route path="/admingatos/:id" component={DetallesGatos} exact />
+              </div>
+            </Switch>
+          </div>
+        </div>
        </Router>     
-                
-
     </>
   );
 }

@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+.modal-scrollable-area {
+  height: auto;
+  max-height: 70vh;
+  padding-right: 10px;
+  overflow-y: scroll;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #212529 !important;
+  border: none;
+}
+
+.btn-secondary, .btn-secondary:hover, .btn-secondary:active, .btn-secondary:visited {
+  background-color: #0c8599 !important;
+  border: none;
+}
+
+.border-primary {
+  border: 1px solid #0c8599 !important;
+  border-radius: 10px;
+}
+
+.img-primary {
+  border-radius: 5px;
+}
