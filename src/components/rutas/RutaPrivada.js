@@ -26,7 +26,7 @@
              render={(props) => {    
                  return !autenticado ?
                      (
-                         <Redirect to="/" /> // SI EL USUARIO NO TIENE AUTENTICACIÓN, RETORNA AL INICIAR SESIÓN
+                         <Redirect to="/iniciosesion" /> // SI EL USUARIO NO TIENE AUTENTICACIÓN, RETORNA AL INICIAR SESIÓN
                      ) :
                      (
                          <Component {...props} />

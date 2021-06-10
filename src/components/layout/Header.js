@@ -21,7 +21,7 @@ export default function Header() {
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link text-white" href="/inicio">Inicio</a>
+        <a class="nav-link text-white" href="/">Inicio</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="/gatitos">Gatitos en adopción</a>
@@ -33,7 +33,7 @@ export default function Header() {
         <a class="nav-link text-white" href="/test">Donaciones</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="/iniciarsesion">Iniciar Sesión</a>
+        <a class="nav-link text-white" href="/iniciosesion">Iniciar Sesión</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="/nueva-cuenta">Registrarme</a>

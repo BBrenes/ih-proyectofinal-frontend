@@ -32,12 +32,12 @@ function App() {
             <Router>
               <Switch>
               <Route 
-                  path="/inicio"
+                  path="/"
                   component={Inicio}
                   exact
                 />
                 <Route 
-                  path="/"
+                  path="/iniciosesion"
                   component={Login}
                   exact
                 />
