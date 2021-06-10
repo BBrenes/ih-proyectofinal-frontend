@@ -16,7 +16,7 @@ export default function Inicio() {
           entre otras cosas.
         </p>
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button">
+          <a class="btn btn-primary btn-lg" href="/gatitos" role="button">
             Ver los michis
           </a>
         </p>

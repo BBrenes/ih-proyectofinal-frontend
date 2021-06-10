@@ -30,7 +30,7 @@ export default function DetallesGatos(props) {
     imagenUrl: "",
   });
 
-  const { nombre, edad, genero, esterilizado, descripcion, imagenUrl } =
+  const { nombre, edad, genero, descripcion, imagenUrl } =
     datosFormulario;
 
   useEffect(() => {

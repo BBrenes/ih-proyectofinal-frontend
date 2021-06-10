@@ -56,7 +56,7 @@ const AdminGatosState = props => {
 
     const eliminarGato = async (id) => {
         try {
-            const resultado = await clienteAxios.delete(`/api/admingatos/${id}`)
+            await clienteAxios.delete(`/api/admingatos/${id}`)
             console.log("Gato eliminado")
         } catch(e){
             console.log(e)

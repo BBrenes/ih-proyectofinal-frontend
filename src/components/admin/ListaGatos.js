@@ -2,15 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import AdminGatosContext from "./../../context/admingatos/AdminGatosContext";
-import AuthContext from "./../../context/autenticacion/AuthContext";
 
 export default function ListaGatos() {
   // EXTRAER LOS VALORES DEL CONTEXT (ESTADO GLOBAL)
   const adminGatosContext = useContext(AdminGatosContext);
   const { gatos, obtenerGatos } = adminGatosContext;
 
-  const authContext = useContext(AuthContext);
-  const { verificarUsuario, cerrarSesion } = authContext;
 
   useEffect(() => {
     const generarEventos = async () => {
@@ -20,11 +17,6 @@ export default function ListaGatos() {
 
     generarEventos();
   }, []);
-
-  const clickLogout = (e) => {
-    e.preventDefault();
-    cerrarSesion();
-  };
 
   return (
     <div className="px-4 pb-4">

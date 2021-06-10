@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
 import AuthContext from "./../../context/autenticacion/AuthContext";
 export default function Login(props) {
   // Extraer los valores del context
