@@ -41,7 +41,7 @@ export default function Login(props) {
       <form onSubmit={(e) => {enviarDatos(e)}}>
         <div class="form-outline mb-4">
           <input type="email" id="form2Example1" name="email" 
-            placeholder="Inserta tu email" onChange={(e) => {monitoreoCambiosFormulario(e)}}
+            placeholder="Ingresa tu email" onChange={(e) => {monitoreoCambiosFormulario(e)}}
             value={email} class="form-control" />
           <label class="form-label" for="form2Example1">
             Email
@@ -50,7 +50,7 @@ export default function Login(props) {
 
         <div class="form-outline mb-4">
           <input type="password" id="form2Example2" name="password"
-            placeholder="Inserta tu contraseña" onChange={(e) => {monitoreoCambiosFormulario(e)}}
+            placeholder="Ingresa tu contraseña" onChange={(e) => {monitoreoCambiosFormulario(e)}}
             value={password} class="form-control" />
           <label class="form-label" for="form2Example2">
             Contraseña

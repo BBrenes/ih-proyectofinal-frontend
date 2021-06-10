@@ -4,6 +4,8 @@ import Proyectos from './components/proyectos/ListadoProyectos'
 import AdminGatos from './components/admin/AdminGatos'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
+import Inicio from './components/layout/Inicio'
+import Gatitos from './components/layout/Gatitos'
 import Test from './components/layout/Test'
 
 import {
@@ -29,6 +31,11 @@ function App() {
       <Header />
             <Router>
               <Switch>
+              <Route 
+                  path="/inicio"
+                  component={Inicio}
+                  exact
+                />
                 <Route 
                   path="/"
                   component={Login}
@@ -48,6 +55,11 @@ function App() {
                   path="/admingatos"
                   component={AdminGatos}
                   exact              
+                />
+                <Route
+                  path="/gatitos"
+                  component={Gatitos}
+                  exact
                 />
                 <Route 
                   path="/test"

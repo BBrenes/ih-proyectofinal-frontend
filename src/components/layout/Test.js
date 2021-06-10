@@ -7,7 +7,7 @@ export default function Test() {
  
   <div class="form-outline mb-4">
     <input type="email" id="form2Example1" class="form-control" />
-    <label class="form-label" for="form2Example1">Email address</label>
+    <label class="form-label" for="form2Example1">Email</label>
   </div>
 
   
