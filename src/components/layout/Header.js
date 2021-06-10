@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import AuthContext from "./../../context/autenticacion/AuthContext";
-import { Link } from "react-router-dom";
 
 export default function Header() {
 
@@ -25,9 +24,7 @@ export default function Header() {
         <a class="nav-link text-white" href="/">Inicio</a>
       </li>
       <li class="nav-item">
-      <Link to={`/gatitos`}>
-        <p class="nav-link text-white">Gatitos en adopción</p>
-      </Link>
+        <a class="nav-link text-white" href="/gatitos">Gatitos en adopción</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="/admingatos">Administrar gatitos</a>
