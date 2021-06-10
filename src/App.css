@@ -62,3 +62,7 @@
 .img-primary {
   border-radius: 5px;
 }
+
+.text-warning {
+  color: #0c8599 !important;
+}

@@ -13,6 +13,7 @@ export default function Login(props) {
   const { email, password } = datosFormulario;
   useEffect(() => {
     if (autenticado) {
+      console.log("entró a Login")
       props.history.push("/admingatos");
     }
     return;

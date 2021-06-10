@@ -26,6 +26,20 @@ const AdminGatosState = props => {
         }
     }
 
+    const obtenerGatosUsuario = async () => {
+        try {
+            const resultado = await clienteAxios.get('/api/usuariogatos')
+            console.log("El resultado es:", resultado)
+            dispatch({
+                type: "OBTENER_GATOS",
+                payload: resultado.data.listaGatos
+            })
+        } catch(e){
+            console.log(e)
+            return
+        }
+    }
+
     const obtenerGato = async (id) => {
         try {
             const resultado = await clienteAxios.get(`/api/admingatos/${id}`)
@@ -88,7 +102,8 @@ const AdminGatosState = props => {
                 obtenerGato,
                 eliminarGato,
                 actualizarGato,
-                crearGato
+                crearGato,
+                obtenerGatosUsuario
             }}
         >
             {props.children}
