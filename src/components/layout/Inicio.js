@@ -4,7 +4,7 @@ export default function Inicio() {
   return (
     <div className="container d-flex my-5">
       <div class="jumbotron">
-        <h1 class="display-4">!Bienvenido!</h1>
+        <h1 class="display-4">¡Bienvenido!</h1>
         <p class="lead">
           Esta es la página de El Gato Vago, un refugio dedicado a 
            rescatar gatitos, si estas interesado en 
